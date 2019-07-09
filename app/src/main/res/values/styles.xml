@@ -8,4 +8,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="RFIDLabel">
+        <item name="android:textSize">@dimen/textSize16</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="RFIDLabel.White">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="RFIDLabel.White.Huge">
+        <item name="android:textSize">@dimen/textSize36</item>
+    </style>
+
+    <style name="RFIDLabel.White.Big">
+        <item name="android:textColor">@dimen/textSize24</item>
+    </style>
+
+
+
 </resources>

@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">RFID</string>
+
+    <!--Permissions-->
+    <string name="error_permission_rationale_camera_title">Camera permission</string>
+    <string name="error_permission_rationale_camera_description">We need your permission to open a camera - it is nessessary to scan a QR code.</string>
+    <string name="error_permission_rationale_camera_accept_button">Open settings</string>
+
+    <!--Dialogs-->
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+
+    <!--Bluetooth-->
+    <string name="bluetooth_text_pair">PAIR DEVICES</string>
+    <string name="bluetooth_text_devices">SHOW DEVICES</string>
+    <string name="bluetooth_text_led">LED ON/OFF</string>
+    <string name="bluetooth_text_disconnect">DISCONNECT</string>
+    <string name="text_paired_devices">List of paired devices</string>
+    <string name="led_on">LED ON</string>
+    <string name="led_off">LED OFF</string>
+
 </resources>
