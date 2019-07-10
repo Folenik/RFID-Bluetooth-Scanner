@@ -9,6 +9,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class RFIDActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,13 +33,15 @@ public class RFIDActivity extends AppCompatActivity implements View.OnClickListe
     boolean isBluetoothConnected;
     String deviceAddress;
     AppCompatButton buttonDisconnect;
-    AppCompatTextView rfidTEST;
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     volatile boolean stopWorker;
     Thread workerThread;
     byte[] readBuffer;
     int readBufferPosition;
     InputStream mmInputStream;
+    ListView scannedItemListView;
+    ArrayAdapter listAdapter;
+    ArrayList scannedList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +58,15 @@ public class RFIDActivity extends AppCompatActivity implements View.OnClickListe
         new ConnectBT().execute();
 
         buttonDisconnect = (AppCompatButton) findViewById(R.id.bluetooth_disconnect);
-        rfidTEST = (AppCompatTextView) findViewById(R.id.rfid_textview);
+        scannedItemListView = (ListView) findViewById(R.id.rfid_listview);
 
         buttonDisconnect.setOnClickListener(this);
-
         buttonDisconnect.setVisibility(View.INVISIBLE);
+
+        scannedList = new ArrayList();
+
+        listAdapter = new ArrayAdapter(this,R.layout.list_scanned_item, scannedList);
+        scannedItemListView.setAdapter(listAdapter);
     }
 
     @Override
@@ -116,10 +125,10 @@ public class RFIDActivity extends AppCompatActivity implements View.OnClickListe
                                     {
                                         public void run()
                                         {
-                                            rfidTEST.setText(data);
-                                        }
+                                            scannedList.add(data);
+                                            listAdapter.notifyDataSetChanged();                                    }
                                     });
-                                }
+                               }
                                 else
                                 {
                                     readBuffer[readBufferPosition++] = b;

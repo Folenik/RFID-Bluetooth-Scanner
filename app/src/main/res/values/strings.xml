@@ -18,5 +18,6 @@
     <string name="text_paired_devices">List of paired devices</string>
     <string name="led_on">LED ON</string>
     <string name="led_off">LED OFF</string>
+    <string name="rfid_scanned_devices">List of scanned devices</string>
 
 </resources>

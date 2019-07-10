@@ -12,10 +12,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rfid_textview"
-        android:text="Nothing."
+        android:text="@string/rfid_scanned_devices"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/textSize24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ListView
+        android:id="@+id/rfid_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rfid_textview" />
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="match_parent"
