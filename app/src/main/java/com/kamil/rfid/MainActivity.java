@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bluetoothPair.setOnClickListener(this);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        //TESTS
+        Intent i = new Intent(MainActivity.this, WiFiActivity.class);
+        startActivity(i);
+        /////////
     }
 
     public void pairDevice() {
